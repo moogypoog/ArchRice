@@ -6,6 +6,7 @@ smart_gaps on
 gaps inner 0
 gaps outer 10
 
+focus_follows_mouse no
 #compositor
 exec --no-startup-id compton -i 0.9
 
@@ -18,13 +19,10 @@ exec --no-startup-id polybar example
 
 exec --no-startup-id nm-applet
 
-exec --no-startup-id mopidy
 
 #colourscheming
-exec_always --no-startup-id wal -t -c -i ~/.config/wallpaper.jpg
+exec_always --no-startup-id wal -t -c -i ~/.config/wallpaper.png
 
-
-focus_follows_mouse no
 
 #caffeine
 exec --no-startup-id caffeine
@@ -42,6 +40,9 @@ bindsym $mod+Shift+s exec spotify
 
 # start a terminal
 bindsym $mod+Return exec termite
+
+# Start A Terminal with ncmpcpp
+bindsym $mod+m exec termite -e ncmpcpp
 
 #Open doter
 bindsym $mod+Control+d exec steam steam://run/570
@@ -106,7 +107,6 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -145,14 +145,5 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-#Resize windows
-bindsym $mod+Shift+u resize shrink width 10 px or 10 ppt
-bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+o resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+p resize grow width 10 px or 10 ppt
-
-
-
- 
 hide_edge_borders smart
 for_window [class="^.*"] border pixel 1
