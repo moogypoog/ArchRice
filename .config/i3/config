@@ -10,29 +10,34 @@ focus_follows_mouse no
 #compositor
 exec --no-startup-id compton -i 0.9
 
+#Set keyboard layout
 exec --no-startup-id setxkbmap gb
+
+#Gets rid of mouse
 exec --no-startup-id unclutter
 
+#Muh eyes
 exec --no-startup-id redshift-gtk
 
+#Muh bar
 exec --no-startup-id polybar example
 
+#Muh t'internets
 exec --no-startup-id nm-applet
-
 
 #colourscheming
 exec_always --no-startup-id wal -t -c -i ~/.config/wallpaper.png
 
-
 #caffeine
 exec --no-startup-id caffeine
 
-
+#Fonts
 font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+#FKDdkaisoJFISNAOdm
 new_window 1pixel
 
 #Music
@@ -41,8 +46,16 @@ bindsym $mod+Shift+s exec spotify
 # start a terminal
 bindsym $mod+Return exec termite
 
+# Terminal Functions
 # Start A Terminal with ncmpcpp
 bindsym $mod+m exec termite -e ncmpcpp
+
+#Calculator window
+for_window [title="calculator"] floating enable
+for_window [title="calculator"] move scratchpad
+exec --no-startup-id termite -t calculator -e "R --quiet"
+bindsym $mod+c [title="calculator"] scratchpad show; [instance="calculator"] move position center
+
 
 #Open doter
 bindsym $mod+Control+d exec steam steam://run/570
@@ -59,6 +72,8 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 #discord
 bindsym $mod+Shift+d exec discord
 
+#ranger
+bindsym $mod+r exec termite -e ranger
 bindsym $mod+space floating toggle
 #sizes
 bindsym $mod+Shift+y resize shrink width 10 px or 10ppt
