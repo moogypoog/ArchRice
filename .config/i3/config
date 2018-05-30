@@ -8,7 +8,7 @@ gaps outer 10
 
 focus_follows_mouse no
 #compositor
-exec --no-startup-id compton -i 0.9
+exec --no-startup-id compton
 
 #Set keyboard layout
 exec --no-startup-id setxkbmap gb
@@ -42,6 +42,16 @@ new_window 1pixel
 
 #Music
 bindsym $mod+Shift+s exec spotify
+bindsym $mod+p exec mpc toggle
+bindsym $mod+greater exec mpc next
+bindsym $mod+less exec mpc prev
+
+#Volume
+bindsym $mod+plus exec mpc volume +10
+bindsym $mod+minus exec mpc volume -10
+
+#Screencaps
+bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Scrots/'
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -49,6 +59,9 @@ bindsym $mod+Return exec termite
 # Terminal Functions
 # Start A Terminal with ncmpcpp
 bindsym $mod+m exec termite -e ncmpcpp
+
+#Ranger
+bindsym $mod+r exec termite -e ranger
 
 #Calculator window
 for_window [title="calculator"] floating enable
@@ -72,9 +85,8 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 #discord
 bindsym $mod+Shift+d exec discord
 
-#ranger
-bindsym $mod+r exec termite -e ranger
 bindsym $mod+space floating toggle
+
 #sizes
 bindsym $mod+Shift+y resize shrink width 10 px or 10ppt
 bindsym $mod+shift+u resize shrink height 10 px or 10ppt
